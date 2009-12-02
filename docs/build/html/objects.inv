@@ -1,0 +1,6 @@
+# Sphinx inventory version 1
+# Project: Boost.CMake
+# Version: 
+ryppl_add_library cmake reference/ryppl_add_library.html
+ryppl_library_project cmake reference/ryppl_library_project.html
+ryppl_add_executable cmake reference/ryppl_add_executable.html

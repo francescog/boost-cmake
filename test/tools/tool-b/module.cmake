@@ -1,0 +1,1 @@
+ryppl_module(b DEPENDS a)
