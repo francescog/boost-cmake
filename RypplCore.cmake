@@ -1384,22 +1384,23 @@ macro(ryppl_python_extension MODULE_NAME)
     MULTI_THREADED
     )
 
-  if(WIN32)
-    set_target_properties(${VARIANT_LIBNAME}
-      PROPERTIES
-      OUTPUT_NAME "${MODULE_NAME}"
-      PREFIX ""
-      SUFFIX .pyd
-      IMPORT_SUFFIX .pyd
-      )
+  if(THIS_VARIANT_OKAY)
+    if(WIN32)
+      set_target_properties(${VARIANT_LIBNAME}
+	PROPERTIES
+	OUTPUT_NAME "${MODULE_NAME}"
+	PREFIX ""
+	SUFFIX .pyd
+	IMPORT_SUFFIX .pyd
+	)
+    else()
+      set_target_properties(${VARIANT_LIBNAME}
+	PROPERTIES
+	OUTPUT_NAME "${MODULE_NAME}"
+	PREFIX ""
+	)
+    endif()
   else()
-    set_target_properties(${VARIANT_LIBNAME}
-      PROPERTIES
-      OUTPUT_NAME "${MODULE_NAME}"
-      PREFIX ""
-      )
-  endif()
-  if (NOT THIS_VARIANT_OKAY)
     colormsg(HIRED "    ${MODULE_NAME}" RED "(python extension) disabled because:")
     foreach(msg ${SELECT_VARIANT_FAILURE_REASONS})
       colormsg(YELLOW "      ${msg}")
