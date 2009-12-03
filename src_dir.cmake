@@ -34,7 +34,9 @@ ryppl_collect_subproject_directory_names(${RYPPL_LIBS_PARENT_DIR}
 # Add all of the Ryppl projects in reverse topological order, so that
 # a library's dependencies show up before the library itself.
 set(CPACK_INSTALL_CMAKE_COMPONENTS_ALL)
-list(SORT RYPPL_SUBPROJECT_DIRS)
+if (RYPPL_SUBPROJECT_DIRS)
+  list(SORT RYPPL_SUBPROJECT_DIRS)
+endif()
 topological_sort(RYPPL_SUBPROJECT_DIRS RYPPL_ _DEPENDS)
 
 #
