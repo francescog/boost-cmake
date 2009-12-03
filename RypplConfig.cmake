@@ -228,18 +228,7 @@ if(LIB_SUFFIX)
   ryppl_report_pretty("Lib suffix" LIB_SUFFIX)
 endif()
 
-#
-#  Only modify these if you're testing the cmake build itself
-#
-if(RYPPL_CMAKE_SELFTEST)
-  colormsg(HIMAG "***")
-  colormsg(HIMAG "*** SELFTEST ENABLED")
-  colormsg(HIMAG "***")
-  set(root "${CMAKE_CURRENT_SOURCE_DIR}/cmake/test")
-  set(RYPPL_CMAKE_SELFTEST_ROOT ${root})
-else()
-  set(root "${CMAKE_CURRENT_SOURCE_DIR}")
-endif()
+set(root "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(RYPPL_LIBS_PARENT_DIR "${root}/src" CACHE INTERNAL
   "Directory to glob tools from...  only change to test the build system itself")

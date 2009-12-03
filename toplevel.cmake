@@ -334,23 +334,17 @@ endif ()
 # ##########################################################################
 # # Building Ryppl libraries                                               #
 # ##########################################################################
-# # Always include the directory where Ryppl's include files will be.
-if (RYPPL_CMAKE_SELFTEST)
-  # Use selftest headers
-  include_directories("${RYPPL_CMAKE_SELFTEST_ROOT}/include")
-endif()
 
-# and regular ryppl headers
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# # Ryppl.Build version 2 does this due to trouble with autolinking
-# # during building and testing.  
-# # TODO: See if we can actually use auto-linking in our regression tests.
-# add_definitions(-DRYPPL_ALL_NO_LIB=1)
-# 
-# #
-# # Get build space set up for exports file
-# #
+# Ryppl.Build version 2 does this due to trouble with autolinking
+# during building and testing.  
+# TODO: See if we can actually use auto-linking in our regression tests.
+add_definitions(-DRYPPL_ALL_NO_LIB=1)
+
+#
+# Get build space set up for exports file
+#
 set(RYPPL_EXPORTS_FILE ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Exports.cmake
   CACHE FILEPATH "File to export targets from ryppl build directory")
 # 

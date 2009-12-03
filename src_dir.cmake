@@ -70,17 +70,6 @@ foreach(subdir ${RYPPL_SUBPROJECT_DIRS})
   endif()
 endforeach()
 
-#
-#  If we're doing selftests, add those selftest dirs
-#
-foreach(project 
-    ${RYPPL_CMAKE_SELFTEST_PROJECTS})
-  colormsg(RED "* ${project}")
-  add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../${RYPPL_CMAKE_DIR}/selftest_projects/${project}
-    ${CMAKE_BINARY_DIR}/src/${project})
-endforeach()
-
-
 set(RYPPL_ALL_COMPONENTS ${RYPPL_ALL_COMPONENTS} PARENT_SCOPE)
 
 if(BUILD_TESTS AND NOT BUILD_TESTS STREQUAL "NONE")
