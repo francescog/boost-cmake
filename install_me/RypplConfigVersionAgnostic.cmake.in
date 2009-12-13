@@ -1,12 +1,12 @@
 #
 # Copyright (C) Troy D. Straszheim
 #
-# Distributed under the Boost Software License, Version 1.0.
+# Distributed under the Ryppl Software License, Version 1.0.
 # See accompanying file LICENSE_1_0.txt or copy at
-#   http://www.boost.org/LICENSE_1_0.txt
+#   http://www.ryppl.org/LICENSE_1_0.txt
 #
 #
-# Determine if we have a version of boost available that works
+# Determine if we have a version of ryppl available that works
 #
 # Thanks Tronic for some sharp eyes.
 # 
@@ -14,14 +14,14 @@ get_filename_component(CWD ${CMAKE_CURRENT_LIST_FILE} PATH)
 
 file(GLOB AVAILABLE_VERSIONFILES 
   RELATIVE ${CWD} 
-  "@CMAKE_INSTALL_PREFIX@/share/boost-*/cmake/BoostConfig.cmake")
+  "@CMAKE_INSTALL_PREFIX@/share/ryppl-*/cmake/RypplConfig.cmake")
 
 message("globbed: ${AVAILABLE_VERSIONFILES}")
-if (EXISTS "@CMAKE_INSTALL_PREFIX@/share/boost-${PACKAGE_FIND_VERSION_MAJOR}.${PACKAGE_FIND_VERSION_MINOR}.${PACKAGE_FIND_VERSION_PATCH}/cmake/BoostConfig.cmake")
+if (EXISTS "@CMAKE_INSTALL_PREFIX@/share/ryppl-${PACKAGE_FIND_VERSION_MAJOR}.${PACKAGE_FIND_VERSION_MINOR}.${PACKAGE_FIND_VERSION_PATCH}/cmake/RypplConfig.cmake")
   #
   #  Exact version
   #
-  set(BOOST_FOUND TRUE)
+  set(RYPPL_FOUND TRUE)
   set(PACKAGE_VERSION ${PACKAGE_FIND_VERSION})
   set(PACKAGE_VERSION_EXACT TRUE)
   set(PACKAGE_VERSION_COMPATIBLE TRUE)

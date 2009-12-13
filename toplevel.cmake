@@ -52,7 +52,7 @@ colormsg(_HIBLUE_ "Ryppl starting")
 #   set(RYPPL_VERSION "${RYPPL_VERSION_MAJOR}.${RYPPL_VERSION_MINOR}.${RYPPL_VERSION_SUBMINOR}")
 # else()
 #   message(FATAL_ERROR 
-#     "Unable to parse Ryppl version from ${CMAKE_CURRENT_SOURCE_DIR}/ryppl/version.hpp")
+#     "Unable to parse Ryppl version from ${CMAKE_CURRENT_SOURCE_DI}R/ryppl/version.hpp")
 # endif()
 # 
 # #
@@ -204,7 +204,7 @@ endif()
 if (RYPPL_VERSION_OVERRIDE)
   set(verdir "ryppl-${RYPPL_VERSION_OVERRIDE}")
 elseif(INSTALL_VERSIONED)
-  set(verdir "ryppl-${RYPPL_VERSION_MAJOR}${sep}${RYPPL_VERSION_MINOR}${sep}${RYPPL_VERSION_SUBMINOR}")
+  set(verdir "ryppl-${RYPPL_VERSION}")
 else()
   set(verstring "")
 endif()
@@ -227,18 +227,18 @@ include(RypplExternals)
 
 if (RYPPL_VERSION_OVERRIDE)
   install(FILES ${CMAKE_BINARY_DIR}/version.hpp 
-    DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}/ryppl
+    DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}/boost
     RENAME version.hpp)
-  install(DIRECTORY ryppl 
-    DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}
-    PATTERN "CVS" EXCLUDE
-    PATTERN ".svn" EXCLUDE
-    PATTERN "ryppl/version.hpp" EXCLUDE)
+  #install(DIRECTORY ryppl 
+  #DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}
+  #    PATTERN "CVS" EXCLUDE
+  #   PATTERN ".svn" EXCLUDE
+  #    PATTERN "ryppl/version.hpp" EXCLUDE)
 else()
-  install(DIRECTORY ryppl 
-    DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}
-    PATTERN "CVS" EXCLUDE
-    PATTERN ".svn" EXCLUDE)
+  #  install(DIRECTORY ryppl 
+  #    DESTINATION ${RYPPL_INCLUDE_INSTALL_DIR}
+  #    PATTERN "CVS" EXCLUDE
+  #    PATTERN ".svn" EXCLUDE)
 endif()
 
 #
@@ -388,7 +388,7 @@ add_subdirectory(src)
 # 
 # endif()
 # 
-# install(EXPORT Ryppl DESTINATION ${RYPPL_EXPORTS_INSTALL_DIR})
+install(EXPORT Ryppl DESTINATION ${RYPPL_EXPORTS_INSTALL_DIR})
 
 add_subdirectory(${RYPPL_CMAKE_DIR})
 
