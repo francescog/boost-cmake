@@ -180,6 +180,7 @@ macro(ryppl_library_project LIBNAME)
     # set the tests directories list for later inclusion
     # project(${libname}-tests)
     if (THIS_PROJECT_TESTDIRS)
+      add_custom_target(${libname}-tests)
       set(RYPPL_TEST_PROJECTS ${ULIBNAME} ${RYPPL_TEST_PROJECTS} PARENT_SCOPE)
     endif()
     foreach(SUBDIR ${THIS_PROJECT_TESTDIRS})

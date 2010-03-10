@@ -324,6 +324,7 @@ macro(ryppl_test_run testname)
         ${THIS_TEST_LOCATION}
         ${RYPPL_TEST_ARGS})
 
+      add_dependencies(${RYPPL_PROJECT_NAME}-tests ${RYPPL_PROJECT_NAME}-${testname})
       set_tests_properties(${RYPPL_TEST_TESTNAME}
         PROPERTIES
         LABELS "${RYPPL_PROJECT_NAME}"
