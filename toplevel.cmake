@@ -335,7 +335,7 @@ endif ()
 # # Building Ryppl libraries                                               #
 # ##########################################################################
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
 
 # Ryppl.Build version 2 does this due to trouble with autolinking
 # during building and testing.  
@@ -394,7 +394,7 @@ add_subdirectory(${RYPPL_CMAKE_DIR})
 
 add_custom_target(genheaders
   COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/${RYPPL_CMAKE_DIR}/genheaders.py 
-  ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_BINARY_DIR}/include
   COMMENT "Generating central header directory")
 
 
