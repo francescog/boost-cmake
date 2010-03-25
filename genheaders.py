@@ -2,23 +2,7 @@
 
 import sys, os
 from os.path import *
-
-if not hasattr(os.path, 'relpath'):
-    def relpath(path, reldir):
-        """Returns 'path' relative to 'reldir'."""
-
-        # use normpath to ensure path separators are uniform
-        path = os.path.normpath(path)
-
-        # find length of reldir as prefix of path (or zero if it isn't)
-        prelen = len(os.path.commonprefix((
-            os.path.normcase(path),
-            # add a separator to get correct prefix length
-            # (normpath removes trailing separators)
-            os.path.normcase(os.path.normpath(reldir)) + os.sep
-            )))
-        return path[prelen:]
-
+from relpath import relpath
 
 print "Projects located under     : ", sys.argv[1]
 print "Fwding headers generated in: ", sys.argv[2]
